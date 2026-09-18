@@ -18,7 +18,10 @@ return array(
                 'guzzlehttp/psr7/src/' => 'lib/GuzzleHttp/Psr7',
                 'mtdowling/jmespath.php/src' => 'lib/JmesPath',
                 'psr/http-client/src' => 'lib/Psr/Http/Client',
-                'psr/http-factory/src' => 'lib/Psr/Http/Factory',
+                // psr/http-factory's interfaces declare namespace Psr\Http\Message
+                // (not Psr\Http\Factory), so they must be mapped alongside
+                // psr/http-message or the PSR-0 style autoloader can't find them.
+                'psr/http-factory/src' => 'lib/Psr/Http/Message',
                 'psr/http-message/src' => 'lib/Psr/Http/Message',
             ),
         ),
